@@ -32,6 +32,7 @@ describe('StepperComponent', () => {
         type: 'stepper',
       },
       config: {
+        action: 'action.octant.dev/test',
         steps: [
           {
             name: 'step name',
