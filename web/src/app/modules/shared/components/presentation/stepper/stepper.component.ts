@@ -9,7 +9,7 @@ import {
   OnDestroy,
   isDevMode,
 } from '@angular/core';
-import { StepperView, View, ActionField } from '../../../models/content';
+import { StepperView, View, ActionField, StepItem } from '../../../models/content';
 import {
   FormGroup,
   FormBuilder,
@@ -47,21 +47,24 @@ export class StepperComponent implements OnChanges, OnDestroy, OnInit {
 
   formGroup: FormGroup;
   action: string;
+  steps: StepItem[];
 
   constructor(
     private formBuilder: FormBuilder,
     private websocketService: WebsocketService
-  ) {}
+  ) {
+    this.steps = [] as StepItem[];
+  }
 
   ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit() {
     if (this.v) {
-      if (this.v.config.action) {
-        this.action = this.v.config.action;
-      }
+      this.action = this.v.config.action;
+      this.steps = this.v.config.steps;
+
       const stepGroups: { [name: string]: any } = {};
-      this.v.config.steps?.forEach(step => {
+      this.steps?.forEach(step => {
         const controls: { [name: string]: any } = {};
         step.items?.forEach(field => {
           controls[field.name] = [
