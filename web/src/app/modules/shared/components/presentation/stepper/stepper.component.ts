@@ -9,7 +9,12 @@ import {
   OnDestroy,
   isDevMode,
 } from '@angular/core';
-import { StepperView, View, ActionField, StepItem } from '../../../models/content';
+import {
+  StepperView,
+  View,
+  ActionField,
+  StepItem,
+} from '../../../models/content';
 import {
   FormGroup,
   FormBuilder,
