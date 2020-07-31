@@ -36,7 +36,7 @@ describe('StepperComponent', () => {
         steps: [
           {
             name: 'step name',
-            items: [],
+            form: { fields: [] },
             title: 'step title',
             description: 'step description',
           },

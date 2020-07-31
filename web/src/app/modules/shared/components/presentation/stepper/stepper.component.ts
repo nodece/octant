@@ -71,7 +71,7 @@ export class StepperComponent implements OnChanges, OnDestroy, OnInit {
       const stepGroups: { [name: string]: any } = {};
       this.steps?.forEach(step => {
         const controls: { [name: string]: any } = {};
-        step.items?.forEach(field => {
+        step.form?.fields?.forEach(field => {
           controls[field.name] = [
             field.value,
             this.getValidators(field.validators),
